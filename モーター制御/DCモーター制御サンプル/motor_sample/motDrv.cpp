@@ -5,8 +5,9 @@
 // モーター制御初期化
 //---------------------------
 void mot_init(void){
-	pinMode(MOT_PORT_OUT1,OUTPUT);
-	pinMode(MOT_PORT_OUT2,OUTPUT);
+	pinMode(MOT_PORT_OUT1, OUTPUT);
+	pinMode(MOT_PORT_OUT2, OUTPUT);
+	pinMode(MOT_PORT_PWM, OUTPUT);
 }
 
 //---------------------------
@@ -14,9 +15,9 @@ void mot_init(void){
 // port1_out:HIGH/LOW
 // port2_out:HIGH/LOW
 //---------------------------
-void mot_control(boolean port1_out,boolean port2_out){
-	digitalWrite(MOT_PORT_OUT1,port1_out);
-	digitalWrite(MOT_PORT_OUT2,port2_out);
+void mot_control(boolean port1_out, boolean port2_out){
+	digitalWrite(MOT_PORT_OUT1, port1_out);
+	digitalWrite(MOT_PORT_OUT2, port2_out);
 }
 
 //---------------------------
