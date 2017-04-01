@@ -1,9 +1,6 @@
-
-//-----------------------------------------------------------------
-// Pinアサイン定義
-//-----------------------------------------------------------------
-int WORKING_LED = 13;
-
+#include <MsTimer2.h>
+#include "PinIO.h"
+#include "LedBlink.h"
 
 //-----------------------------------------------------------------
 // 初期処理
@@ -11,7 +8,7 @@ int WORKING_LED = 13;
 void setup() {
   // put your setup code here, to run once:
   pinModeSetup();
-
+  timerTaskSetup();
 }
 
 //-----------------------------------------------------------------
@@ -19,7 +16,6 @@ void setup() {
 //-----------------------------------------------------------------
 void loop() {
   // put your main code here, to run repeatedly:
-  ledBlink();　// LED点滅
 
 }
 
@@ -30,14 +26,11 @@ void pinModeSetup(void){
   pinMode( WORKING_LED , OUTPUT);
 }
 
-
 //-----------------------------------------------------------------
-// LED点滅
+// 定周期タスク登録&開始
 //-----------------------------------------------------------------
-#define BLINK_TIMER 1000 // 点滅間隔　単位:msec
-void ledBlink(){  
-    digitalWrite(WORKING_LED,HIGH);
-    delay(BLINK_TIMER);
-    digitalWrite(WORKING_LED,LOW);
-    delay(BLINK_TIMER);
+void timerTaskSetup(){
+  MsTimer2::set(BLINK_TIMER,ledBlink);  // LED点滅
+  MsTimer2::start();
 }
+
