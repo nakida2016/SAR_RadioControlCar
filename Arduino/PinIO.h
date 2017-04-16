@@ -7,7 +7,7 @@
 //#define  0   // RX
 //#define  1   // TX
 //#define  2
-//#define  3   // PWM
+#define  SERV_PORT_PWM 3   // PWM
 //#define  4
 //#define  5   // PWM
 //#define  6   // PWM
