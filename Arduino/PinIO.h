@@ -7,10 +7,10 @@
 //#define  0   // RX
 //#define  1   // TX
 //#define  2
-#define  SERV_PORT_PWM 3   // PWM
+#define  BT_RESET 3   // BT Reset
 
 //#define  4
-//#define  5   // PWM
+#define  SERV_PORT_PWM  5   // PWM サーボ
 //#define  6   // PWM
 #define MOT_PORT_OUT1 7   // モーター制御 OUT1
 #define MOT_PORT_OUT2 8   // モーター制御 OUT2

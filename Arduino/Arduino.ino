@@ -3,6 +3,7 @@
 #include "LedBlink.h"
 #include "servDrv.h"
 #include "motDrv.h"
+#include "BTDrv.h"
 
 //-----------------------------------------------------------------
 // 初期処理
@@ -10,11 +11,11 @@
 void setup() {
   // put your setup code here, to run once:
   pinModeSetup();
-  Serial.begin(9600);
+  Serial.begin(115200);
   timerTaskSetup();
 
   // テスト用初期設定
-//  motStg = MOT_OFF;
+//  motStg = MOT_DC_STOP;
 }
 
 //-----------------------------------------------------------------
@@ -69,8 +70,10 @@ void loop() {
 //      motStg = MOT_CW;
 //      break;
 //  }
-//
+
 //  delay(3000);
+
+  BTMain();
 
 }
 
@@ -81,6 +84,7 @@ void pinModeSetup(void){
   pinMode( WORKING_LED , OUTPUT);
   serv_init(); // サーボモーター制御初期化
   mot_init();  // DCモーター制御初期化
+  BTReset();  //BT 初期化
 }
 
 //-----------------------------------------------------------------
