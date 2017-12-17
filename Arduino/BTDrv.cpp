@@ -1,5 +1,7 @@
 #include "arduino.h"
 #include "PinIO.h"
+#include "servDrv.h"
+#include "motDrv.h"
 
 char inByte[2] = {-1, -1};         // incoming serial byte
 String data;
@@ -33,6 +35,14 @@ void BTMain(){
       }
     }
     if (inByte[1] != -1) {
+      // コマンド解析
+      switch(inByte[0]){
+        case 'L':  hdrTurnLeft(inByte[1]);   break;
+        case 'R':  hdrTurnRight(inByte[1]);  break;
+        case 'F':  hdrDriveFront(inByte[1]);  break;
+        case 'B':  hdrDriveBack(inByte[1]);  break;
+        default: break;
+      }
       for(cnt = 0; cnt < 2; cnt++){
         Serial.print(inByte[cnt],HEX); 
         Serial.print(","); 
@@ -42,6 +52,6 @@ void BTMain(){
     }
    } 
    delay(10);        // delay in between reads for stability
-
 }
+
 

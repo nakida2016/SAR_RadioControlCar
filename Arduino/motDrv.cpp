@@ -1,6 +1,7 @@
 #include "arduino.h"
 #include "motDrv.h"
 #include "PinIO.h"
+#include "LogUtil.h"
 
 //---------------------------
 // モーター制御初期化
@@ -28,3 +29,17 @@ void mot_control(boolean port1_out, boolean port2_out){
 void mot_pwm_control(UCHAR pwm){
 	analogWrite(MOT_PORT_PWM, pwm);
 }
+
+//----------------------------
+// 前進
+//----------------------------
+void hdrDriveFront(int level){
+    Serial.print("Front");timeStamp();Serial.print(level,DEC);ln();
+}
+//----------------------------
+// バック
+//----------------------------
+void hdrDriveBack(int level){
+    Serial.print("Back");timeStamp();Serial.print(level,DEC);ln();
+}
+

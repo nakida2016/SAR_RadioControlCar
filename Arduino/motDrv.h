@@ -15,4 +15,6 @@ typedef unsigned char UCHAR;
 extern void mot_init(void);
 extern void mot_control(boolean port1_out,boolean port2_out);
 extern void mot_pwm_control(UCHAR pwm);
+extern void hdrDriveFront(int level);
+extern void hdrDriveBack(int level); 
 #endif

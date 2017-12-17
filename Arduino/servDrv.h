@@ -13,4 +13,6 @@
 
 extern void serv_init(void);
 extern void serv_pwm_control(int pwm);
+extern void hdrTurnRight(int level);
+extern void hdrTurnLeft(int level);
 #endif
